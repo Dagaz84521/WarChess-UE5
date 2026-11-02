@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "一次搜索，范围与路径共享结果",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "viewBox": [1180, 700],
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "backend": { "label": "规则、算法与结果操作" },
+        "database": { "label": "输入与派生数据" }
+      }
+    }
+  },
+  "components": [
+    { "id": "movement-context", "type": "database", "label": "MoveContext", "sublabel": "只读输入 + 最短路径树缓存", "pos": [40, 30], "size": [240, 84] },
+    { "id": "graph-search", "type": "backend", "label": "PathFinding", "sublabel": "预算受限 Dijkstra", "pos": [470, 30], "size": [260, 84] },
+    { "id": "movement-rules", "type": "backend", "label": "MoveRule", "sublabel": "邻接边、Cost 与停留规则", "pos": [900, 30], "size": [240, 84] },
+    { "id": "board-facts", "type": "database", "label": "Board", "sublabel": "地形、占位与邻接事实", "pos": [900, 290], "size": [240, 84] },
+    { "id": "range-tree", "type": "database", "label": "MovementRangeResult", "sublabel": "Start + CostMap + PreviousMap", "pos": [470, 290], "size": [260, 84] },
+    { "id": "range-view", "type": "backend", "label": "GetMoveRange()", "sublabel": "CostMap + CanStop → 合法终点", "pos": [40, 550], "size": [240, 84] },
+    { "id": "path-builder", "type": "backend", "label": "BuildPath(Destination)", "sublabel": "沿 PreviousMap 恢复完整路径", "pos": [900, 550], "size": [240, 84] }
+  ],
+  "connections": [
+    { "id": "context-input", "from": "movement-context", "to": "graph-search", "label": "本次移动输入", "variant": "emphasis" },
+    { "id": "search-edges", "from": "graph-search", "to": "movement-rules", "label": "GetEdges", "variant": "emphasis" },
+    { "id": "rule-board", "from": "movement-rules", "to": "board-facts", "label": "读取棋盘事实", "labelDy": 90 },
+    { "id": "search-range", "from": "graph-search", "to": "range-tree", "label": "生成最短路径树", "variant": "emphasis", "labelDy": 90 },
+    { "id": "range-cache", "from": "range-tree", "to": "movement-context", "label": "由 Resolver 缓存", "variant": "dashed" },
+    { "id": "tree-range", "from": "range-tree", "to": "range-view", "label": "读取最低 Cost", "variant": "emphasis" },
+    { "id": "tree-path", "from": "range-tree", "to": "path-builder", "label": "读取前驱关系", "variant": "emphasis" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "一次搜索生成一棵树", "items": ["保存预算内最低 Cost 与每个节点的前驱", "经过节点不必都是合法停留终点"] },
+    { "dot": "emerald", "title": "查询与指令共享结果", "items": ["GetMoveRange 使用同版本的停留规则", "BuildPath 只恢复路径，不再次运行搜索"] },
+    { "dot": "amber", "title": "统一缓存生命周期", "items": ["缓存缺失或失效时先重建整棵树", "已有 A* 保留为独立单目标能力"] }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "diagram_type": "architecture",
+  "output": "movement-architecture.html",
+  "specification_sha256": "7e5f0d38cfeacfbd394b0604b6e6580d9d415ca385faf4dcd34017c3247802e6",
+  "specification_bytes": 3011,
+  "artifact_sha256": "00909e361d3d90bc51f6ebe10a6bd25e9e38d036e5e38d4c8ce707a624900951",
+  "artifact_bytes": 708692,
+  "validation": "9/9 showcase, 0 errors, 0 warnings",
+  "browser_evidence": "passed",
+  "browser_receipt": "movement-architecture.visual-check.json",
+  "visual_review": "passed",
+  "visual_review_scope": "Inspected the four artifact-bound screenshots: light/dark at 1440x900 and 2048x1320, plus the native PNG export. Read view, text fit, route clearance and desktop balance reviewed.",
+  "correction_rounds": 1,
+  "exports_receipt": "movement-architecture.exports.json"
+}

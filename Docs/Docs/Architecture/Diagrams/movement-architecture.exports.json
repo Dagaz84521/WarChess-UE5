@@ -1,0 +1,18 @@
+{
+  "kind": "native-viewer-export",
+  "artifactSha256": "00909e361d3d90bc51f6ebe10a6bd25e9e38d036e5e38d4c8ce707a624900951",
+  "outputs": [
+    {
+      "file": "movement-architecture.svg",
+      "bytes": 52191,
+      "sha256": "ce68eaf23019e95257dc8160632e2dad07d77409967674e11944492d8891679f",
+      "canonicalStateClean": true
+    },
+    {
+      "file": "movement-architecture.png",
+      "bytes": 534776,
+      "sha256": "bc4af4facba390fc3929a29d296a6f2f3b4db180541f9620b3abdcd107d9a41a",
+      "canonicalStateClean": true
+    }
+  ]
+}
