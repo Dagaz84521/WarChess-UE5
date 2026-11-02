@@ -1,0 +1,30 @@
+# Unreal Engine generated files
+Binaries/
+Intermediate/
+DerivedDataCache/
+Saved/
+
+# IDE files
+.vs/
+.idea/
+.vscode/
+*.sln
+*.suo
+*.VC.db
+*.VC.opendb
+*.xcodeproj
+*.xcworkspace
+
+# Local settings and credentials
+.env
+.env.*
+!.env.example
+.codex/
+.agents/
+.aws/
+
+# System files and Python caches
+Thumbs.db
+.DS_Store
+__pycache__/
+*.pyc
