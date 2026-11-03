@@ -1,5 +1,7 @@
 # 六边形网格与 A* 迁移清单
 
+> 2026-11-03 更新：下文保留早期迁移计划及未决事项。当前 UE 模块已实现 Board、MoveRule 和预算桶式 Dijkstra，算法以 [ADR-010](../../Architecture/Decisions/ADR-010-寻路算法确定.md) 为准，实际进展见 [PathFinding 实现记录](PathFinding实现.md)。历史 Dijkstra/带权回归计划不作为当前 MVP 的实现要求。
+
 > 状态：迁移与验证计划，尚未接入已有移动源码。
 >
 > 依据：[ADR-007](../../Architecture/Decisions/ADR-007-移动系统与寻路算法解耦.md) 与 [棋盘与移动系统](../../Architecture/Subsystems/棋盘与移动系统.md)。不以本清单代替实现证据。

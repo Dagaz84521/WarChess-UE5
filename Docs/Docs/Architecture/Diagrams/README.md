@@ -1,5 +1,7 @@
 # 移动架构图
 
+> 本目录是 ADR-007 的历史图示，图中的 Dijkstra 标签尚未重新导出。当前 UE MVP 使用预算桶式 Dijkstra，算法选型以 [ADR-010](../Decisions/ADR-010-寻路算法确定.md) 为准；结果复用的数据流仍适用。
+
 本图说明 [ADR-007](../Decisions/ADR-007-移动系统与寻路算法解耦.md) 的核心决策：一次预算搜索生成最短路径树，由 MoveContext 缓存；GetMoveRange 与 BuildPath 消费同一份结果。已有 A* 保留独立能力，不作为移动主流程无缓存时的回退。图不作为已有代码结构或实现完成度的证据。
 
 - [交互 HTML](movement-architecture.html)：独立查看，支持主题切换和原生导出。

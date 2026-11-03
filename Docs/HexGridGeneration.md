@@ -14,7 +14,9 @@
 6. 创建 `HexGridDataAsset` 类型的数据资产，指定到 `TargetGridDataAsset`，点击 `Generate Grid` 导出采样结果，再保存资产。该操作不自动写入磁盘。
 7. `Clear Grid` 清除当前生成器的格子、贴花和坐标标签，不清空已经导出的 DataAsset。
 
-数据保留坐标、世界中心点与 `bIsPassable`。没有地面或采样不合格的候选格仍会被保存，但标记为不可通行。DataAsset 保留旧格式，以 `FVector2D(Q, R)` 为键。
+数据保留坐标、世界中心点与 `bStandable`。没有地面或采样不合格的候选格仍会被保存，但标记为不可通行。DataAsset 保留旧格式，以 `FVector2D(Q, R)` 为键。
+
+`bStandable` 表示基础站立条件，不含运行时单位占位，也不定义格间高度差通行限制。旧字段名 `bIsPassable` 已通过 PropertyRedirects 映射到新字段。运行时可以将导出资产交给 `UBoard::Initialize`，见 [Board 实现记录](Docs/Implementation/Movement/Board实现.md)。
 
 `Preview Grid Wires` 沿用原来的持久调试线实现，刷新/清理预览会清除当前世界的持久调试线。它适合编辑器生成调试，不作为正式游戏画面。
 

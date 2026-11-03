@@ -36,12 +36,18 @@
   - [ADR-005 伤害结算流程（已确定）](Architecture/Decisions/ADR-005-伤害结算流程.md)
   - [ADR-006 Hook 统一派发与 Model 自主判断（已确定）](Architecture/Decisions/ADR-006-Hook统一派发与Model自主判断.md)
   - [ADR-007 移动系统与寻路算法解耦（已确定）](Architecture/Decisions/ADR-007-移动系统与寻路算法解耦.md)
+  - [ADR-008 Board 对象与静态动态数据分离（已确定）](Architecture/Decisions/ADR-008-Board对象与静态动态数据分离.md)
+  - [ADR-009 MVP 单位费用移动采用 BFS（已被替代）](Architecture/Decisions/ADR-009-MVP单位费用移动采用BFS.md)
+  - [ADR-010 寻路算法确定（已确定）](Architecture/Decisions/ADR-010-寻路算法确定.md)
   - [ADR-005 伤害结算流程（Codex 讨论版，归档草案）](Architecture/Archive/Decisions/ADR-005-伤害结算流程-Codex版.md)
 - 使用案例：
   - [01 实现一个火球术](Examples/01-实现一个火球术.md)
   - [02 实现一个燃烧 Buff](Examples/02-实现一个燃烧Buff.md)
   - [03 扩展一种地形规则：泥地、飞行与占位](Examples/03-扩展一种地形规则.md)
 - 移动重构配套：
+  - [UE Board 实现：地图定义、动态占位与 ZOC TODO](Implementation/Movement/Board实现.md)
+  - [UE MoveRule 实现：默认移动规则与可覆盖接口](Implementation/Movement/MoveRule实现.md)
+  - [UE PathFinding 实现：预算桶式 Dijkstra 与前驱树](Implementation/Movement/PathFinding实现.md)
   - [方格移动原型：地面 / 飞行与逐格事件](../Prototype/MovementREADME.md)
   - [方格移动实现记录](Implementation/Movement/方格移动原型.md)
   - [六边形网格与 A* 迁移清单（计划）](Implementation/Movement/六边形网格与AStar迁移清单.md)
